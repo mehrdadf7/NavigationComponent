@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.github.mehrdadf7.navigationcomponent.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+
+        <action
+            android:id="@+id/action_mainFragment_to_viewTransactionFragment"
+            app:destination="@id/viewTransactionFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+        <action
+            android:id="@+id/action_mainFragment_to_chooseRecipientFragment"
+            app:destination="@id/chooseRecipientFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            />
+
+        <action
+            android:id="@+id/action_mainFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/chooseRecipientFragment"
+        android:name="com.github.mehrdadf7.navigationcomponent.ChooseRecipientFragment"
+        android:label="fragment_chooser_recipient"
+        tools:layout="@layout/fragment_chooser_recipient" >
+        <action
+            android:id="@+id/action_chooseRecipientFragment_to_specifyAmountFragment"
+            app:destination="@id/specifyAmountFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/specifyAmountFragment"
+        android:name="com.github.mehrdadf7.navigationcomponent.SpecifyAmountFragment"
+        android:label="fragment_specify_amount"
+        tools:layout="@layout/fragment_specify_amount" >
+
+        <argument
+            android:name="recipient"
+            android:defaultValue="None" />
+
+        <action
+            android:id="@+id/action_specifyAmountFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.github.mehrdadf7.navigationcomponent.ViewBalanceFragment"
+        android:label="fragment_view_balance"
+        tools:layout="@layout/fragment_view_balance" />
+
+
+
+    <fragment
+        android:id="@+id/viewTransactionFragment"
+        android:name="com.github.mehrdadf7.navigationcomponent.ViewTransactionFragment"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_view_transaction" />
+
+
+
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.github.mehrdadf7.navigationcomponent.ConfirmationFragment"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation">
+
+        <argument
+            android:name="recipient"
+            android:defaultValue="None" />
+        <argument
+            android:name="amount"
+            android:defaultValue="com.github.mehrdadf7.navigationcomponent.Money" />
+
+    </fragment>
+
+
+
+</navigation>
